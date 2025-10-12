@@ -1,11 +1,11 @@
 let table;
-let filterRows = [];
+let filteredRows = [];
 
-let col0 =[];
-let col1 = [];
-let col2 =[];
-let col3 = [];
-let col4 = [];
+let col0Values = [];
+let col1Values = [];
+let col2Values = [];
+let col3Values = [];
+let col4Values = [];
 
 let average0;
 let average1;
@@ -16,7 +16,7 @@ let average4;
 let std4;
 
 function preload () {
-  table = loadable ("dataset.csv", "csv", "header");
+  table = loadTable ("dataset.csv", "csv", "header");
 }
 
 //FUNZIONI DI CALCOLO
@@ -32,7 +32,7 @@ function calcAvg (arr) {
 
 //FUNZIONE PER LA DEVIAZIONE STANDARD
 function calcStD (arr) {
-  if (arr.lenght === 0) return 0;
+  if (arr.length === 0) return 0;
   let average = calcAvg(arr);
   let sommaQuad = 0;
   for (let i = 0; i < arr.length; i++) {
@@ -66,7 +66,7 @@ function calcMode(arr) {
   }
   
   //se c'è una sola moda restitusce solo un valore, se ce ne sono di più ne restituisce un array di valori
-  if (mode.lenght === 1) return mode[0];
+  if (mode.length === 1) return mode[0];
   return mode;
 }
 
@@ -95,10 +95,10 @@ function setup() {
     const col0 = table.getNum (r,0); //colonna 0 come numero
 
     //applicare regole maggiore di 0 e multiplo di 5
-  if (column0 > 0 && column0 % 5 == 0) {
+  if (col0 > 0 && col0 % 5 == 0) {
     let rowObj = {}; //crea oggetto x ogni riga valid
     for (let c = 0; c < table.getColumnCount(); c++) {
-      let colName = table.Columns[c]; //Nome colonna
+      let colName = table.columns[c]; //Nome colonna
       rowObj [colName] = table.get(r,c);
     }
     filteredRows.push(rowObj);
@@ -110,6 +110,11 @@ function setup() {
  col3Values = filteredRows.map(row => Number (row.column3));
  col4Values = filteredRows.map(row => Number (row.column4));
  
+//Calcolo media col0
+average0 = calcAvg (col0Values);
+print ("average col0:" , average0);
+
+
 }
 
 function draw() {
