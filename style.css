@@ -1,8 +1,53 @@
-html, body {
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f5f7fa;
+  color: #333;
   margin: 0;
   padding: 0;
 }
 
-canvas {
-  display: block;
+header {
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+main {
+  width: 100%;
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+
+.chart-container {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.chart-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#results {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+}
+
+#textResults p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #2c3e50;
+  color: white;
+  margin-top: 2rem;
 }
