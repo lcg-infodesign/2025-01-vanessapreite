@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Sketch</title>
 
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -13,8 +12,11 @@
   </head>
 
   <body>
-    <header>
-      <h1>Analisi Statistica Dataset</h1>
+    <header id="top">
+      <div class="hero">
+        <h1>Analisi Statistica Dataset</h1>
+        <button id="scrollCharts">Vai ai grafici</button>
+      </div>
     </header>
   
     <main>
@@ -23,7 +25,6 @@
           <h2>Media Colonna 0(Average)</h2>
         </div>
 
-  
         <div class="chart-container" id="stdChart">
           <h2>Deviazione Standard Colonna 1(Standard Deviation)</h2>
         </div>
@@ -42,8 +43,16 @@
         </div>
       </section>
     </main>
-  
+
+    <footer>
+      <a href="#top">↑ Torna all’inizio</a>
+    </footer>
+
+    <script>
+      document.getElementById("scrollCharts").addEventListener("click", () => {
+        document.getElementById("charts").scrollIntoView({ behavior: "smooth" });
+      });
+    </script>
     <script src="sketch.js"></script>
-  </body>
   </body>
 </html>

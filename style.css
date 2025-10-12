@@ -1,18 +1,51 @@
+/* Font moderno */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: #f5f7fa;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
   color: #333;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
+/* Leader fullscreen */
 header {
-  background: #2c3e50;
-  color: white;
+  width: 100%;
+  height: 100vh; /* tutta finestra */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(44, 62, 80, 0.7);
+  position: relative;
   text-align: center;
-  padding: 1rem 0;
 }
 
+header .hero h1 {
+  font-size: 6vw; /* si adatta alla larghezza finestra */
+  color: white;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+header .hero button {
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.6rem;
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+header .hero button:hover {
+  background: rgba(255, 255, 255, 0.45);
+  transform: scale(1.05);
+}
+
+/* Main e container */
 main {
   width: 100%;
   max-width: 1000px;
@@ -20,35 +53,25 @@ main {
 }
 
 .chart-container {
-  background: white;
+  background: rgba(255, 255, 255, 0.85);
   border-radius: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   padding: 1.5rem;
   margin-bottom: 2rem;
+  backdrop-filter: blur(8px);
 }
 
 .chart-container h2 {
   text-align: center;
   margin-bottom: 1rem;
+  font-weight: 600;
 }
 
+/* Risultati */
 #results {
-  background: white;
+  background: rgba(255, 255, 255, 0.85);
   border-radius: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   padding: 1.5rem;
-}
-
-#textResults p {
-  font-size: 1.1rem;
-  margin: 0.5rem 0;
-}
-
-
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #2c3e50;
-  color: white;
-  margin-top: 2rem;
+  backdrop-f
 }

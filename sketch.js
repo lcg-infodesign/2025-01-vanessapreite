@@ -213,8 +213,7 @@ function drawModeCol2() {
   let bubbles = [];
   let centerX = gWidth / 2;
   let centerY = gHeight / 2;
-
-  let maxY = gHeight - 40; // lascia spazio per il testo descrittivo
+  let maxY = gHeight - 40; // spazio per testo descrittivo
 
   // convert mode2 in array
   let modeArray = Array.isArray(mode2) ? mode2.map(String) : [String(mode2)];
@@ -234,7 +233,7 @@ function drawModeCol2() {
     modeBubbles.push(b);
   }
 
-  // Bolle non-moda
+  // Bolle non-moda (casuali ma armoniche)
   for (let val of uniqueValues) {
     if (modeArray.includes(String(val))) continue;
 
@@ -244,22 +243,23 @@ function drawModeCol2() {
     let attempts = 0;
     let x, y, overlap;
     do {
-      let target = random(modeBubbles);
+      let target = random(bubbles); // riferimento casuale tra tutte le bolle
       let angle = random(TWO_PI);
-      let distance = random(target.radius + 40, target.radius + 100);
+      let distance = random(target.radius + 20, target.radius + 100);
+      let centerAttraction = 0.2; // leggera attrazione verso il centro
+      x = target.x + cos(angle) * distance + (centerX - target.x) * centerAttraction;
+      y = target.y + sin(angle) * distance + (centerY - target.y) * centerAttraction;
 
-      x = target.x + cos(angle) * distance;
-      y = target.y + sin(angle) * distance;
-
-      // vincolo verticale per non andare sotto il testo
+      // vincolo verticale
       y = constrain(y, padding + radius, maxY - radius);
 
+      // controllo sovrapposizione
       overlap = false;
       for (let b of bubbles)
         if (dist(x, y, b.x, b.y) < radius + b.radius + 5) overlap = true;
 
       attempts++;
-      if (attempts > 300) break;
+      if (attempts > 500) break;
     } while (overlap);
 
     bubbles.push({ x, y, radius, val, freq, isMode: false });
@@ -333,7 +333,6 @@ function drawModeCol2() {
   cnvImg.style("max-width", "100%");
   gHeight && (cnvImg.style.height = gHeight + "px");
 }
-
 
 
 
