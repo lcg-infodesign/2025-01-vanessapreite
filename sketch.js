@@ -23,13 +23,10 @@ function preload () {
   table = loadTable ("dataset.csv", "csv", "header");
 }
 
-//=========================//
 //   FUNZIONI DI CALCOLO   //
-//=========================//
-
-// Calcola la media di un array
+// Calcola la media aritmetica di un array
 function calcAvg (arr) {
-  if (arr.length === 0) return 0;
+  if (arr.length === 0) return 0; //Controlla l'array vuoto e ritorna 0 in quel caso.
   let sum = 0;
   for (let i = 0;i < arr.length; i++) {
     sum += arr[i]; 
@@ -93,9 +90,9 @@ function calcMedian(arr) {
   }
 }
 
-//===========================//
+
 //   GRAFICO MEDIA COLONNA 0 //
-//===========================//
+
 function drawAverageCol0() {
   let gWidth = 700;
   let gHeight = 200;
@@ -106,7 +103,7 @@ function drawAverageCol0() {
   let topMargin = 20, bottomMargin = 50, leftMargin = 40, rightMargin = 40;
   let chartWidth = gWidth - leftMargin - rightMargin;
   let chartHeight = gHeight - topMargin - bottomMargin;
-  let barWidth = chartWidth / col0Values.length;
+  let barWidth = chartWidth / col0Values.length; //la larghezza di una singola barra = spazio totale / numero di valori.
   let maxVal = Math.max(...col0Values);
   let zeroY = gHeight - bottomMargin;
 
@@ -147,9 +144,9 @@ function drawAverageCol0() {
   cnvImg.style("height", gHeight + "px");
 }
 
-//=============================//
+
 //   GRAFICO DEVIAZIONE STD 1  //
-//=============================//
+
 function drawStdCol1() {
   let gWidth = 700;
   let gHeight = 200;
@@ -213,9 +210,9 @@ function drawStdCol1() {
   cnvImg.style("height", gHeight + "px");
 }
 
-//=====================//
+
 //   GRAFICO MODA 2    //
-//=====================//
+
 function drawModeCol2() {
   let gWidth = 700, gHeight = 230;
   let g = createGraphics(gWidth, gHeight);
@@ -334,9 +331,9 @@ function drawModeCol2() {
   gHeight && (cnvImg.style.height = gHeight + "px");
 }
 
-//=================//
+
 //     SETUP       //
-//=================//
+
 function setup() {
   createCanvas(400, 400);
 
